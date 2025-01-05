@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+:root {
+  --geist-mono: "Geist Mono", monospace;
+  --background: var(--background-light);
+  --foreground: var(--foreground-light);
+  --background-light: 0 0% 95%;
+  --foreground-light: 240 10% 3.9%;
+  --background-dark: 240 10% 3.9%;
+  --foreground-dark: 0 0% 98%;
+}
+.dark {
+  --background: var(--background-dark);
+  --foreground: var(--foreground-dark);
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  @apply text-foreground;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  @apply bg-primary text-primary-foreground;
+}
+
+@layer utilities {
+  .icon-hover {
+    @apply transition-transform duration-300 ease-in-out;
+  }
+  .icon-hover:hover {
+    @apply transform scale-110 rotate-12;
+  }
+
+  .accent-hover {
+    @apply text-accent;
+  }
+
+  .accent-bg {
+    @apply bg-accent;
+    @apply text-white;
+  }
+  button:hover {
+    @apply accent-hover;
+  }
+}
+
+/* Tailwind utility classes */
+.font-mono {
+  font-family: var(--geist-mono);
+}
